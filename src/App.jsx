@@ -10,8 +10,6 @@ import Button from "./functions/Button";
 import Form from ",/functions/Form";
 import Card from "./functions/Card";
 
-
-
 const steps = [
   { name: 'Business Concept', component: ConceptStep },
   { name: 'Entity Selection', component: EntityStep },
