@@ -1,0 +1,8 @@
+// Button component
+.button {
+  @include button-base;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
