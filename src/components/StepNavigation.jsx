@@ -1,4 +1,7 @@
 import React from 'react';
+import '../styles/base.scss';
+import '../styles/components.scss';
+
 
 const StepNavigation = ({ steps, currentStep, goToStep }) => (
   <div className="flex space-x-2">
