@@ -17,6 +17,12 @@ const steps = [
   { name: "Marketing Strategy", component: MarketingStep },
   { name: "Financial Setup", component: FinanceStep },
   { name: "Website & Hosting", component: WebsiteStep },
+  { name: "Business Concept", component: ConceptStep },
+  { name: "Entity Selection", component: EntityStep },
+  { name: "Registration", component: RegistrationStep },
+  { name: "Marketing Strategy", component: MarketingStep },
+  { name: "Financial Setup", component: FinanceStep },
+  { name: "Website & Hosting", component: WebsiteStep },
 ];
 
 function App() {
@@ -25,6 +31,7 @@ function App() {
   const [completedSteps, setCompletedSteps] = useState([]);
 
   useEffect(() => {
+    const saved = localStorage.getItem("businessFormationProgress");
     const saved = localStorage.getItem("businessFormationProgress");
     if (saved) {
       const data = JSON.parse(saved);
@@ -39,10 +46,15 @@ function App() {
       ...prev,
       [step]: { ...prev[step], ...data },
     }));
+    setBusinessData((prev) => ({
+      ...prev,
+      [step]: { ...prev[step], ...data },
+    }));
   };
 
   const markStepComplete = (stepId) => {
     if (!completedSteps.includes(stepId)) {
+      setCompletedSteps((prev) => [...prev, stepId]);
       setCompletedSteps((prev) => [...prev, stepId]);
     }
   };
@@ -56,17 +68,21 @@ function App() {
     };
     localStorage.setItem("businessFormationProgress", JSON.stringify(data));
     alert("Progress saved successfully!");
+    localStorage.setItem("businessFormationProgress", JSON.stringify(data));
+    alert("Progress saved successfully!");
   };
 
   const nextStep = () => {
     markStepComplete(currentStep);
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
+      setCurrentStep((prev) => prev + 1);
     }
   };
 
   const prevStep = () => {
     if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
       setCurrentStep((prev) => prev - 1);
     }
   };
@@ -81,15 +97,25 @@ Name: ${businessData.concept?.name || "N/A"}
 Industry: ${businessData.concept?.industry || "N/A"}
 Description: ${businessData.concept?.description || "N/A"}
 Target Market: ${businessData.concept?.target || "N/A"}
+Name: ${businessData.concept?.name || "N/A"}
+Industry: ${businessData.concept?.industry || "N/A"}
+Description: ${businessData.concept?.description || "N/A"}
+Target Market: ${businessData.concept?.target || "N/A"}
 
 === ENTITY SELECTION ===
+Type: ${businessData.entity?.type || "N/A"}
+State: ${businessData.entity?.state || "N/A"}
 Type: ${businessData.entity?.type || "N/A"}
 State: ${businessData.entity?.state || "N/A"}
 
 === REGISTRATION ===
 ${businessData.registration?.notes || "No notes yet"}
+${businessData.registration?.notes || "No notes yet"}
 
 === MARKETING STRATEGY ===
+Value Proposition: ${businessData.marketing?.uvp || "N/A"}
+Budget: $${businessData.marketing?.budget || "0"}/month
+90-Day Plan: ${businessData.marketing?.plan90 || "N/A"}
 Value Proposition: ${businessData.marketing?.uvp || "N/A"}
 Budget: $${businessData.marketing?.budget || "0"}/month
 90-Day Plan: ${businessData.marketing?.plan90 || "N/A"}
@@ -98,16 +124,25 @@ Budget: $${businessData.marketing?.budget || "0"}/month
 Startup Costs: $${businessData.finance?.startupCosts || "0"}
 Funding Source: ${businessData.finance?.fundingSource || "N/A"}
 Pricing Strategy: ${businessData.finance?.pricing || "N/A"}
+Startup Costs: $${businessData.finance?.startupCosts || "0"}
+Funding Source: ${businessData.finance?.fundingSource || "N/A"}
+Pricing Strategy: ${businessData.finance?.pricing || "N/A"}
 
 === WEBSITE & HOSTING ===
 Domain: ${businessData.website?.domain || "N/A"}
 Platform: ${businessData.website?.platform || "N/A"}
 Hosting: ${businessData.website?.hosting || "N/A"}
+Domain: ${businessData.website?.domain || "N/A"}
+Platform: ${businessData.website?.platform || "N/A"}
+Hosting: ${businessData.website?.hosting || "N/A"}
 `;
+    const blob = new Blob([report], { type: "text/plain" });
     const blob = new Blob([report], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
+    const a = document.createElement("a");
     a.href = url;
+    a.download = "business-formation-plan.txt";
     a.download = "business-formation-plan.txt";
     a.click();
   };
@@ -122,6 +157,9 @@ Hosting: ${businessData.website?.hosting || "N/A"}
             <h1 className="text-2xl font-bold text-gray-900">
               Business Formation Assistant
             </h1>
+            <h1 className="text-2xl font-bold text-gray-900">
+              Business Formation Assistant
+            </h1>
             <p className="text-sm text-gray-600">Powered by InsightHunter</p>
           </div>
           <div className="flex space-x-2">
@@ -129,6 +167,17 @@ Hosting: ${businessData.website?.hosting || "N/A"}
               onClick={saveProgress}
               className="flex items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
