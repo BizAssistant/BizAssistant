@@ -17,12 +17,15 @@ const steps = [
   { name: "Marketing Strategy", component: MarketingStep },
   { name: "Financial Setup", component: FinanceStep },
   { name: "Website & Hosting", component: WebsiteStep },
+<<<<<<< HEAD
+=======
   { name: "Business Concept", component: ConceptStep },
   { name: "Entity Selection", component: EntityStep },
   { name: "Registration", component: RegistrationStep },
   { name: "Marketing Strategy", component: MarketingStep },
   { name: "Financial Setup", component: FinanceStep },
   { name: "Website & Hosting", component: WebsiteStep },
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
 ];
 
 function App() {
@@ -32,7 +35,10 @@ function App() {
 
   useEffect(() => {
     const saved = localStorage.getItem("businessFormationProgress");
+<<<<<<< HEAD
+=======
     const saved = localStorage.getItem("businessFormationProgress");
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
     if (saved) {
       const data = JSON.parse(saved);
       setBusinessData(data.businessData || {});
@@ -46,16 +52,22 @@ function App() {
       ...prev,
       [step]: { ...prev[step], ...data },
     }));
+<<<<<<< HEAD
+=======
     setBusinessData((prev) => ({
       ...prev,
       [step]: { ...prev[step], ...data },
     }));
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
   };
 
   const markStepComplete = (stepId) => {
     if (!completedSteps.includes(stepId)) {
       setCompletedSteps((prev) => [...prev, stepId]);
+<<<<<<< HEAD
+=======
       setCompletedSteps((prev) => [...prev, stepId]);
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
     }
   };
 
@@ -68,22 +80,31 @@ function App() {
     };
     localStorage.setItem("businessFormationProgress", JSON.stringify(data));
     alert("Progress saved successfully!");
+<<<<<<< HEAD
+=======
     localStorage.setItem("businessFormationProgress", JSON.stringify(data));
     alert("Progress saved successfully!");
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
   };
 
   const nextStep = () => {
     markStepComplete(currentStep);
     if (currentStep < steps.length - 1) {
       setCurrentStep((prev) => prev + 1);
+<<<<<<< HEAD
+=======
       setCurrentStep((prev) => prev + 1);
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
     }
   };
 
   const prevStep = () => {
     if (currentStep > 0) {
       setCurrentStep((prev) => prev - 1);
+<<<<<<< HEAD
+=======
       setCurrentStep((prev) => prev - 1);
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
     }
   };
 
@@ -97,41 +118,64 @@ Name: ${businessData.concept?.name || "N/A"}
 Industry: ${businessData.concept?.industry || "N/A"}
 Description: ${businessData.concept?.description || "N/A"}
 Target Market: ${businessData.concept?.target || "N/A"}
+<<<<<<< HEAD
+=======
 Name: ${businessData.concept?.name || "N/A"}
 Industry: ${businessData.concept?.industry || "N/A"}
 Description: ${businessData.concept?.description || "N/A"}
 Target Market: ${businessData.concept?.target || "N/A"}
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
 
 === ENTITY SELECTION ===
 Type: ${businessData.entity?.type || "N/A"}
 State: ${businessData.entity?.state || "N/A"}
+<<<<<<< HEAD
+
+=== REGISTRATION ===
+${businessData.registration?.notes || "No notes yet"}
+=======
 Type: ${businessData.entity?.type || "N/A"}
 State: ${businessData.entity?.state || "N/A"}
 
 === REGISTRATION ===
 ${businessData.registration?.notes || "No notes yet"}
 ${businessData.registration?.notes || "No notes yet"}
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
 
 === MARKETING STRATEGY ===
 Value Proposition: ${businessData.marketing?.uvp || "N/A"}
 Budget: $${businessData.marketing?.budget || "0"}/month
 90-Day Plan: ${businessData.marketing?.plan90 || "N/A"}
+<<<<<<< HEAD
+=======
 Value Proposition: ${businessData.marketing?.uvp || "N/A"}
 Budget: $${businessData.marketing?.budget || "0"}/month
 90-Day Plan: ${businessData.marketing?.plan90 || "N/A"}
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
 
 === FINANCIAL SETUP ===
 Startup Costs: $${businessData.finance?.startupCosts || "0"}
 Funding Source: ${businessData.finance?.fundingSource || "N/A"}
 Pricing Strategy: ${businessData.finance?.pricing || "N/A"}
+<<<<<<< HEAD
+=======
 Startup Costs: $${businessData.finance?.startupCosts || "0"}
 Funding Source: ${businessData.finance?.fundingSource || "N/A"}
 Pricing Strategy: ${businessData.finance?.pricing || "N/A"}
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
 
 === WEBSITE & HOSTING ===
 Domain: ${businessData.website?.domain || "N/A"}
 Platform: ${businessData.website?.platform || "N/A"}
 Hosting: ${businessData.website?.hosting || "N/A"}
+<<<<<<< HEAD
+`;
+    const blob = new Blob([report], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "business-formation-plan.txt";
+=======
 Domain: ${businessData.website?.domain || "N/A"}
 Platform: ${businessData.website?.platform || "N/A"}
 Hosting: ${businessData.website?.hosting || "N/A"}
@@ -144,6 +188,7 @@ Hosting: ${businessData.website?.hosting || "N/A"}
     a.href = url;
     a.download = "business-formation-plan.txt";
     a.download = "business-formation-plan.txt";
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
     a.click();
   };
 
@@ -157,9 +202,12 @@ Hosting: ${businessData.website?.hosting || "N/A"}
             <h1 className="text-2xl font-bold text-gray-900">
               Business Formation Assistant
             </h1>
+<<<<<<< HEAD
+=======
             <h1 className="text-2xl font-bold text-gray-900">
               Business Formation Assistant
             </h1>
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
             <p className="text-sm text-gray-600">Powered by InsightHunter</p>
           </div>
           <div className="flex space-x-2">
@@ -178,6 +226,8 @@ Hosting: ${businessData.website?.hosting || "N/A"}
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
+<<<<<<< HEAD
+=======
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -189,6 +239,7 @@ Hosting: ${businessData.website?.hosting || "N/A"}
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
+>>>>>>> 490fe7148caac06b1d7250559f9de4f46cb76d0a
                 <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
                 <polyline points="17 21 17 13 7 13 7 21"></polyline>
                 <polyline points="7 3 7 8 15 8"></polyline>
