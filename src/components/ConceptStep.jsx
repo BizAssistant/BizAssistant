@@ -1,4 +1,5 @@
 import React from 'react';
+import StepNavigation from "./StepNavigation";
 
 const ConceptStep = ({ data, updateData }) => (
   <div className="space-y-4">
