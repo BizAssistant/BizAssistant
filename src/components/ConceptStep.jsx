@@ -1,29 +1,33 @@
 import React from 'react';
-import './styles/scss/base/index.scss';
-import './styles/scss/components/index.scss';
 
-function ConceptStep({ businessData, updateBusinessData, nextStep }) {
-  const concept = businessData.concept || {};
-
+const ConceptStep = ({ state, updateBusinessData }) => {
   return (
-    <div className="space-y-6 fade-in">
-      <h2 className="text-2xl font-bold text-gray-800">Define Your Business Concept</h2>
-      <div className="space-y-4">
+    <div className="space-y-4">
+      <h2 className="text-xl sm:text-2xl font-semibold text-emerald-glow">
+        Define your business concept
+      </h2>
+      <p className="text-xs sm:text-sm text-slate-300/85">
+        Start with a clear name, the industry you operate in, and who you serve.
+      </p>
+      <div className="space-y-3">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
+          <label className="block text-[0.7rem] font-medium text-emeraldMetalSoft mb-1.5">
+            Business name
+          </label>
           <input
             type="text"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            placeholder="Enter your business name"
-            value={concept.name || ''}
+            className="w-full px-3 py-2 rounded-2xl bg-black/40 border border-emeraldMetalSoft/30 text-sm"
+            placeholder="Example: Emerald Lane Consulting"
+            value={state.concept.name || ''}
             onChange={(e) => updateBusinessData('concept', { name: e.target.value })}
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Industry/Sector</label>
+          <label className="block text-[0.7rem] font-medium text-emeraldMetalSoft mb-1.5">
+            Industry / sector
+          </label>
           <select
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            value={concept.industry || ''}
+            className="w-full px-3 py-2 rounded-2xl bg-black/40 border border-emeraldMetalSoft/30 text-sm"
             onChange={(e) => updateBusinessData('concept', { industry: e.target.value })}
           >
             <option value="">Select industry</option>
@@ -37,32 +41,9 @@ function ConceptStep({ businessData, updateBusinessData, nextStep }) {
             <option value="other">Other</option>
           </select>
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Business Description</label>
-          <textarea
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            rows="4"
-            placeholder="Describe what your business does and the problem it solves"
-            value={concept.description || ''}
-            onChange={(e) => updateBusinessData('concept', { description: e.target.value })}
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Target Market</label>
-          <textarea
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            rows="3"
-            placeholder="Who are your ideal customers?"
-            value={concept.target || ''}
-            onChange={(e) => updateBusinessData('concept', { target: e.target.value })}
-          />
-        </div>
       </div>
-      <button onClick={nextStep} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-        Next
-      </button>
     </div>
   );
-}
+};
 
 export default ConceptStep;
