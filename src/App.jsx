@@ -82,11 +82,11 @@ Domain: ${businessData.website.domain || 'N/A'}
 Platform: ${businessData.website.platform || 'N/A'}
 Hosting: ${businessData.website.hosting || 'N/A'}
 `;
-    const blob = new Blob([report], { type: "text/plain" });
+    const blob = new Blob([report], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
+    const a = document.createElement('a');
     a.href = url;
-    a.download = "business-formation-plan.txt";
+    a.download = 'business-formation-plan.txt';
     a.click();
   };
 
