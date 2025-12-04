@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import ConceptStep from "./components/ConceptStep";
 import EntityStep from "./components/EntityStep";
@@ -7,19 +6,6 @@ import MarketingStep from "./components/MarketingStep";
 import FinanceStep from "./components/FinanceStep";
 import WebsiteStep from "./components/WebsiteStep";
 import Dashboard from "./components/Dashboard";
-import Button from "./functions/Button";
-import Form from ",/functions/Form";
-import Card from "./functions/Card";
-=======
-import React, { useState, useEffect } from 'react';
-import ConceptStep from './components/ConceptStep';
-import EntityStep from './components/EntityStep';
-import RegistrationStep from './components/RegistrationStep';
-import MarketingStep from './components/MarketingStep';
-import FinanceStep from './components/FinanceStep';
-import WebsiteStep from './components/WebsiteStep';
-import Dashboard from './components/Dashboard';
->>>>>>> 9a647e5ce4d26f94b1c683f762ac3249f04df5ea
 
 const steps = [
   { name: "Business Concept", component: ConceptStep },
