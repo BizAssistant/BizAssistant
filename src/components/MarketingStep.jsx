@@ -1,6 +1,7 @@
 import React from 'react';
-import './styles/base.scss';
-import './styles/components.scss';
+import '../styles/base.scss';
+import '../styles/components.scss';
+
 
 function MarketingStep({ businessData, updateBusinessData, nextStep, prevStep }) {
   const marketing = businessData.marketing || {};
