@@ -1,4 +1,6 @@
 import React from 'react';
+import './styles/base.scss';
+import './styles/components.scss';
 
 function FinanceStep({ businessData, updateBusinessData, nextStep, prevStep }) {
   const finance = businessData.finance || {};
