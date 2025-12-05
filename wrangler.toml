@@ -25,6 +25,7 @@ main = "worker.js"
 
 # Environment variables
 [vars]
-# Add any environment variables her
+# Add any environment variables here
+
 [pages]
   pages_build_output_dir = "dist"
