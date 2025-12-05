@@ -11,7 +11,7 @@ export default {
         const file = formData.get('file') as File;
         const key = `uploads/${file.name}`;
 
-        await env.MY_BUCKET.put(key, file.stream());
+        await env.BIZASSIST_R2.put(key, file.stream());
         return new Response(JSON.stringify({ key }), {
           status: 200,
           headers: { 'Content-Type': 'application/json' },
@@ -22,7 +22,7 @@ export default {
 
     if (url.pathname.startsWith('/api/download')) {
       const key = url.searchParams.get('key');
-      const object = await env.MY_BUCKET.get(key);
+      const object = await env.BIZASSIST_R2.get(key);
       if (object) {
         return new Response(object.body, {
           headers: { 'Content-Type': 'application/octet-stream' },
