@@ -1,0 +1,30 @@
+name = "biz-formation-assistant"
+type = "javascript"  # for Pages deployment
+account_id = "18c8e61a3669253dcfd0c7eec6be36a3"
+workers_dev = false
+route = "bizassistapp.turneratlanta.com/*"      # your domain or subdomain, e.g., app.yourdomain.com/*
+zone_id = "621eb120d82997c4af1a61d0a6ecce9a"
+app = "biz-formstion-assistant"                   # Optional, for Pages projects
+main = "worker.js"
+compatibility_date = "2025-12-04"
+pages_build_output_dir = "/dist"
+CF_API_TOKEN = "BaJwrIQKeuRqTb8PkQ8Et-UezoFyQn19FBkGyEUl"
+
+[[routes]]
+pattern = "bizassistapp.turneratlanta.com/api/*"
+zone_id = "621eb120d82997c4af1a61d0a6ecce9a"
+
+[vars]
+# Add any environment variables here
+[build]
+command = "npm run build"
+
+[dev]
+ip = "127.0.0.1"
+port = 8787
+# R2 binding
+[[r2_buckets]]
+binding = "BIZASSIST_R2"  # available in your Worker as env.MY_BUCKET
+bucket_name = "biz-assist"
+preview_bucket_name = "biz-assist-preview"
+
