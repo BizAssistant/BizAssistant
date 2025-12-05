@@ -1,11 +1,13 @@
-export const onRequestPost: PagesFunction = async (context) => {
-  const { request, env } = context;
-  const body = await request.json();
+export const onRequestGet: PagesFunction = async (context) => {
+  const { env } = context;
+  const object = await env.BIZASSIST_R2.get('progress.json');
 
-  // Save progress to D1, KV, or R2
-  await env.BIZASSIST_R2.put('progress.json', JSON.stringify(body));
-  return new Response('Progress saved', {
-    status: 200,
+  if (object) {
+    return new Response(object.body, {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  return new Response('{}', {
     headers: { 'Content-Type': 'application/json' },
   });
 };
