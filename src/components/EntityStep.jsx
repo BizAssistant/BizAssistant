@@ -2,15 +2,22 @@ import React from 'react';
 import '../styles/base.scss';
 import '../styles/components.scss';
 
-function EntityStep({ businessData, updateBusinessData, nextStep, prevStep }) {
-  const entity = businessData.entity || {};
-  const entities = [
+functionw EntityStep({ businessData, updateBusinessData, nextStep, prevStep }) {
+    const entity = businessData.entity || {};
+    const entities = [
     { type: 'LLC', desc: 'Limited Liability Company' },
     { type: 'Corporation', desc: 'C-Corp or S-Corp structure' },
     { type: 'Sole Proprietorship', desc: 'Simplest for solo owners' },
     { type: 'Partnership', desc: 'Multiple owner structure' }
   ];
-
+    const handleFormSubmit = async () => {
+    const response = await fetch('/api/formation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(businessData.entity),
+    });
+    const result = await response.json();
+    
   return (
     <div className="space-y-6 fade-in">
       <h2 className="text-2xl font-bold text-emerald-glow">Choose Your Business Entity</h2>
@@ -26,7 +33,7 @@ function EntityStep({ businessData, updateBusinessData, nextStep, prevStep }) {
             }`}
           >
             <div className="flex items-start justify-between mb-3">
-              <div>
+              <div>i
                 <h3 className="font-bold text-emerald-glow text-lg">{entityType.type}</h3>
                 <p className="text-gray-400 text-sm">{entityType.desc}</p>
               </div>
@@ -54,6 +61,7 @@ function EntityStep({ businessData, updateBusinessData, nextStep, prevStep }) {
         >
           Next
         </button>
+         <button onClick={handleFormSubmit}>Submit</button>
       </div>
     </div>
   );
